@@ -1,0 +1,144 @@
+:root {
+  color-scheme: light;
+  --bg: #fff8ec;
+  --surface: #fffdf8;
+  --surface-soft: #fff1dc;
+  --mint: #eef8ef;
+  --blue: #edf7fb;
+  --ink: #3f352b;
+  --muted: #776b5f;
+  --line: #ead9c2;
+  --accent: #9b6a3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg), #fffdf8 46%, #f4fbf5);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+}
+
+.shell {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 34px) 64px;
+}
+
+.hero {
+  padding: 6px 0 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(32px, 7vw, 52px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.notice {
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: #5d4935;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.card {
+  display: flex;
+  min-height: 156px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.9);
+  text-decoration: none;
+}
+
+.card:nth-child(2) {
+  background: var(--mint);
+}
+
+.card:nth-child(3) {
+  background: var(--blue);
+}
+
+.card strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.card span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.card em {
+  margin-top: 18px;
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.back {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 132px;
+  }
+}
