@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leo 的分数应用题错题讲解</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff8ec;
+      --paper: #fffef9;
+      --text: #3f3a2f;
+      --muted: #746a59;
+      --line: #eadfca;
+      --sky: #6aa6d8;
+      --sky-soft: #edf7ff;
+      --mint: #74b99f;
+      --mint-soft: #edf9f3;
+      --honey: #e8bd5f;
+      --honey-soft: #fff6d9;
+      --rose: #ee9d92;
+      --rose-soft: #fff0ec;
+      --formula-bg: #fffaf0;
+      --formula-line: #ecd9ae;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: #4f8fc4;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .hero,
+    section {
+      margin: 16px 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #4f8fc4;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 24px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .summary,
+    .muted,
+    .source {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: #4f8fc4;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .focus-line {
+      margin: 18px 0 0;
+      padding: 14px;
+      border-left: 5px solid var(--mint);
+      border-radius: 8px;
+      background: var(--mint-soft);
+      font-weight: 700;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .map-item,
+    .step,
+    .callout,
+    .practice-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .map-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      background: var(--sky);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .lesson {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      border-left: 5px solid var(--sky);
+      background: var(--sky-soft);
+    }
+
+    .callout {
+      margin: 12px 0;
+    }
+
+    .trap {
+      border-color: var(--honey);
+      background: var(--honey-soft);
+    }
+
+    .check {
+      border-color: var(--mint);
+      background: var(--mint-soft);
+    }
+
+    .warn {
+      border-color: var(--rose);
+      background: var(--rose-soft);
+    }
+
+    .formula {
+      overflow-x: auto;
+      margin: 12px 0 0;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--formula-line);
+      background: var(--formula-bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .practice-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    details {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .memory {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .source {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 940px);
+        padding-top: 10px;
+      }
+
+      .hero,
+      section {
+        padding: 16px;
+      }
+
+      .map-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Leo 的错题讲解</p>
+      <h1>今天先学会：看清题目到底问什么</h1>
+      <p class="summary">这份卷子里，最值得先练的不是更多计算，而是分清：题目问的是“占几分之几”，还是“实际有多少”。</p>
+      <div class="tag-row">
+        <span class="tag">分数应用题</span>
+        <span class="tag">单位 1</span>
+        <span class="tag">先审题再列式</span>
+      </div>
+      <p class="focus-line">今天只抓一个关键动作：列式前，先写一句“要求的是____，单位 1 是____”。</p>
+    </header>
+
+    <section>
+      <h2>错题地图</h2>
+      <div class="map-grid">
+        <article class="map-item">
+          <span class="map-number">1</span>
+          <h3>花圃题</h3>
+          <p>题目问“玫瑰占总面积的几分之几”，所以总面积先看作 1。</p>
+        </article>
+        <article class="map-item">
+          <span class="map-number">2</span>
+          <h3>蔬菜表</h3>
+          <p>“共占”“其他”“比谁多”是三种问法，列式不一样。</p>
+        </article>
+        <article class="map-item">
+          <span class="map-number">3</span>
+          <h3>统计图</h3>
+          <p>问“占总时间的几分之几”，要先求总时间，再求占比。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson">
+      <h2>第 1 题：花圃里的玫瑰占几分之几</h2>
+      <p>题目说：整个花圃面积是 <strong>5/6 公顷</strong>，牡丹占总面积的 <strong>2/5</strong>，百合占总面积的 <strong>1/3</strong>，其余是玫瑰。</p>
+
+      <div class="step">
+        <h3>第 1 步：题目问什么？</h3>
+        <p>它问的是：玫瑰<strong>占总面积的几分之几</strong>。注意，是“占比”，不是“玫瑰有多少公顷”。</p>
+      </div>
+
+      <div class="step">
+        <h3>第 2 步：单位 1 是谁？</h3>
+        <p>因为题目问“占总面积”，所以整个花圃就是单位 1。你可以把总面积想成一整张地图，牡丹占一块，百合占一块，剩下就是玫瑰。</p>
+      </div>
+
+      <div class="step">
+        <h3>第 3 步：怎么列式？</h3>
+        <p>用整块总面积 1，减去已经知道的两部分。</p>
+        <pre class="formula">玫瑰占比 = 1 - 牡丹占比 - 百合占比
+1 - 2/5 - 1/3
+= 15/15 - 6/15 - 5/15
+= 4/15</pre>
+      </div>
+
+      <div class="callout trap">
+        <h3>容易掉进的坑</h3>
+        <p><strong>5/6 公顷</strong>是实际面积，<strong>2/5</strong>和<strong>1/3</strong>是占比。实际面积和占比不是同一种东西，不能直接放在一起减。</p>
+      </div>
+
+      <div class="callout check">
+        <h3>下次这样检查</h3>
+        <p>看到“占总数的几分之几”，先问自己：这题是不是先把总数看作 1？如果是，算式里通常会出现 <strong>1 - 已知部分</strong>。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>第 2 题：蔬菜表里的三种问法</h2>
+      <p>表格里有：黄瓜占 1/8，西红柿占 1/6，白菜占 3/8，辣椒占 1/12。</p>
+
+      <div class="two-col">
+        <article class="step">
+          <h3>问“共占”</h3>
+          <p>把两个部分合起来。</p>
+          <pre class="formula">黄瓜和白菜共占：
+1/8 + 3/8 = 4/8 = 1/2</pre>
+        </article>
+
+        <article class="step">
+          <h3>问“比谁多”</h3>
+          <p>用大的部分减小的部分。</p>
+          <pre class="formula">白菜比辣椒多占：
+3/8 - 1/12
+= 9/24 - 2/24
+= 7/24</pre>
+        </article>
+      </div>
+
+      <div class="step">
+        <h3>问“其他”</h3>
+        <p>“其他”就是剩下的部分。先把表格里已经写出来的部分加起来，再用 1 减。</p>
+        <pre class="formula">已知蔬菜一共占：
+1/8 + 1/6 + 3/8 + 1/12
+= 3/24 + 4/24 + 9/24 + 2/24
+= 18/24 = 3/4
+
+其他蔬菜占：
+1 - 3/4 = 1/4</pre>
+      </div>
+
+      <div class="callout check">
+        <h3>三种问法，一句话记住</h3>
+        <p>共占用加法，其他用 1 减已知，比谁多用减法。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>第 3 题：布料题先看最后一句</h2>
+      <p>这道题图片里有些笔迹重叠，具体数字需要复核原卷。但这类题的关键方法很清楚：先看最后一句到底问什么。</p>
+
+      <div class="two-col">
+        <article class="step">
+          <h3>如果问“一共用去多少米”</h3>
+          <p>只加已经用掉的两部分。</p>
+          <pre class="formula">上衣用去 + 裤子用去</pre>
+        </article>
+
+        <article class="step">
+          <h3>如果问“原来一共有多少米”</h3>
+          <p>用掉的两部分，还要加上剩下的部分。</p>
+          <pre class="formula">上衣用去 + 裤子用去 + 还剩</pre>
+        </article>
+      </div>
+
+      <div class="callout trap">
+        <h3>容易混的地方</h3>
+        <p>“用去”不包括“还剩”；“原来一共有”才包括“还剩”。最后一句变了，算式也会变。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>第 4 题：统计图先求总，再求占比</h2>
+      <p>只要题目问“占学习总时间的几分之几”，就不能只看一个数，要先求总时间。</p>
+
+      <div class="step">
+        <h3>固定三步</h3>
+        <pre class="formula">第 1 步：读出每一项时间
+第 2 步：学习总时间 = 看书时间 + 做题时间 + 反思时间
+第 3 步：占比 = 某一项时间 / 学习总时间</pre>
+      </div>
+
+      <details>
+        <summary>看一个小例子</summary>
+        <p>小明今天学习 6 小时，其中看书 2 小时，做题 3 小时，整理错题 1 小时。整理错题时间占学习总时间的几分之几？</p>
+        <pre class="formula">整理错题时间 / 学习总时间
+= 1 / 6
+= 1/6</pre>
+      </details>
+    </section>
+
+    <section>
+      <h2>5 分钟小练习</h2>
+      <ol class="practice-list">
+        <li class="practice-card">把本卷花圃题重做一遍，只写两句话：<strong>要求的是____，单位 1 是____。</strong></li>
+        <li class="practice-card">把蔬菜表的“其他蔬菜占几分之几”重做一遍，先算已知部分，再用 1 减。</li>
+        <li class="practice-card">写出布料题两种问法的区别：<strong>一共用去</strong>和<strong>原来一共</strong>分别要加哪些部分？</li>
+        <li class="practice-card">找一道统计图题，先写总量，再写占比。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>今天记住一句话</h2>
+      <p class="memory">先看问什么，再找单位 1；占比用 1 减，数量别乱混。</p>
+      <div class="callout warn">
+        <h3>原卷复核提醒</h3>
+        <p>布料题的题干和手写答案在照片里有重叠，具体数字建议看原卷再确认。本页先练这类题的判断方法。</p>
+      </div>
+      <p class="source">来源：
+        <a href="../原始素材/2026-05-23-第五六单元综合练习-第1页-原图.jpg">试卷第 1 页原图</a>、
+        <a href="../原始素材/2026-05-23-第五六单元综合练习-第2页-原图.jpg">试卷第 2 页原图</a>、
+        <a href="2026-05-23-第五六单元综合练习-Leo错题讲解与训练单.md">Markdown 训练单</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

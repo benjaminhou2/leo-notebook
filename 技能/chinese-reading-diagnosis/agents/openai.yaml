@@ -1,0 +1,4 @@
+interface:
+  display_name: "语文阅读诊断"
+  short_description: "分析阅读题错因，训练三问法和分点答题"
+  default_prompt: "使用 $chinese-reading-diagnosis 分析 Leo 的语文阅读理解试卷或作业，找出信息定位、概括、中心理解、分点表达等薄弱点，并生成家长版诊断、孩子版讲解和专项提升习题。"

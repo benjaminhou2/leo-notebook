@@ -1,0 +1,323 @@
+{
+  "updatedAt": "2026-05-26",
+  "schemaVersion": "learning-portal-v1",
+  "portal": {
+    "title": "Leo 本地学习门户",
+    "intro": "登录后先看各科原始素材和系统分析，再按科目查看需要加强的知识点与对应习题。",
+    "primarySections": [
+      "各科原始素材与分析",
+      "分科知识点提升清单"
+    ]
+  },
+  "subjects": [
+    {
+      "id": "math",
+      "label": "数学",
+      "tone": "pale-sky",
+      "directories": {
+        "raw": "数学/原始素材/",
+        "analysis": "数学/教学分析/",
+        "practice": "数学/提升习题/"
+      }
+    },
+    {
+      "id": "chinese",
+      "label": "语文",
+      "tone": "pale-peach",
+      "directories": {
+        "raw": "语文/原始素材/",
+        "analysis": "语文/教学分析/",
+        "practice": "语文/提升习题/"
+      }
+    },
+    {
+      "id": "english",
+      "label": "英文",
+      "tone": "pale-mint",
+      "directories": {
+        "raw": "英文/原始素材/",
+        "analysis": "英文/教学分析/",
+        "practice": "英文/提升习题/"
+      }
+    }
+  ],
+  "materialGroups": [
+    {
+      "id": "math-2026-05-23-unit56",
+      "date": "2026-05-23",
+      "subject": "math",
+      "type": "本周测试",
+      "title": "第五六单元综合练习",
+      "priority": "P0",
+      "tags": [
+        "分数应用题",
+        "单位 1",
+        "统计图",
+        "审题"
+      ],
+      "summary": "主要暴露分数应用题中“占比”和“实际数量”混淆的问题。",
+      "rawFiles": [
+        {
+          "label": "第 1 页原图",
+          "source": "数学/原始素材/试卷部分/2026-05-23-第五六单元综合练习-第1页-原图.jpg"
+        },
+        {
+          "label": "第 2 页原图",
+          "source": "数学/原始素材/试卷部分/2026-05-23-第五六单元综合练习-第2页-原图.jpg"
+        }
+      ],
+      "analysis": {
+        "skill": "student-homework-diagnosis",
+        "file": "数学/教学分析/2026-05-23-第五六单元综合练习-诊断与提升方案.md",
+        "summary": "Leo 有分数计算基础，但应用题列式前需要先判断单位 1、问题类型和数量关系。",
+        "strengths": [
+          "分数基本加减有基础",
+          "多数应用题有列式意识",
+          "统计图能读出部分信息"
+        ],
+        "needsImprovement": [
+          "单位 1 判断不稳",
+          "占比和实际数量混淆",
+          "应用题最后一句审题不足"
+        ]
+      },
+      "learningLinks": [
+        {
+          "label": "Leo 错题讲解 HTML",
+          "kind": "html",
+          "source": "数学/教学分析/2026-05-23-第五六单元综合练习-Leo错题讲解与训练单.html"
+        },
+        {
+          "label": "Leo 错题讲解 Markdown",
+          "kind": "markdown",
+          "source": "数学/教学分析/2026-05-23-第五六单元综合练习-Leo错题讲解与训练单.md"
+        }
+      ]
+    },
+    {
+      "id": "chinese-2026-05-23-unit3",
+      "date": "2026-05-23",
+      "subject": "chinese",
+      "type": "日常试卷",
+      "title": "第三单元过关检测密卷",
+      "priority": "P0",
+      "tags": [
+        "阅读理解",
+        "三问法",
+        "答案完整性",
+        "汉字文化"
+      ],
+      "summary": "主要暴露阅读题缺少固定答题流程，以及汉字文化知识记忆不够精准的问题。",
+      "rawFiles": [
+        {
+          "label": "第 1 页原图",
+          "source": "语文/原始素材/试卷部分/2026-05-23-第三单元过关检测密卷-第1页-原图.jpg"
+        },
+        {
+          "label": "第 2 页原图",
+          "source": "语文/原始素材/试卷部分/2026-05-23-第三单元过关检测密卷-第2页-原图.jpg"
+        }
+      ],
+      "analysis": {
+        "skill": "student-homework-diagnosis",
+        "file": "语文/教学分析/2026-05-23-第三单元过关检测密卷-诊断与提升方案.md",
+        "summary": "基础题不是最大问题，阅读题需要回到原文找依据，并按分值组织答案。",
+        "strengths": [
+          "对第三单元基础内容有接触和记忆",
+          "能大致读懂文章内容",
+          "部分汉字文化题可以完成"
+        ],
+        "needsImprovement": [
+          "阅读信息定位不稳定",
+          "简答题分点意识不足",
+          "汉字文化常识需要精准记忆"
+        ]
+      },
+      "learningLinks": [
+        {
+          "label": "三问法训练单",
+          "kind": "markdown",
+          "source": "语文/教学分析/2026-05-23-第三单元过关检测密卷-三问法训练单.md"
+        }
+      ]
+    },
+    {
+      "id": "chinese-composition-summary-2026-05-26",
+      "date": "2026-05-26",
+      "subject": "chinese",
+      "type": "作文总结",
+      "title": "Leo 作文能力评估与提升方案",
+      "priority": "P0",
+      "tags": [
+        "作文",
+        "错别字",
+        "的地得",
+        "细节描写"
+      ],
+      "summary": "基于 7 篇作文转写稿，系统评估 Leo 的作文能力，重点定位写完后的二次修订问题。",
+      "rawFiles": [
+        {
+          "label": "作文原始素材索引",
+          "source": "语文/原始素材/作文部分/作文部分索引.md"
+        }
+      ],
+      "analysis": {
+        "skill": "chinese-composition-coach",
+        "file": "语文/教学分析/2026-05-26-Leo作文能力评估与提升方案.md",
+        "summary": "Leo 能写完整事件，下一阶段最需要建立的能力是写完后的二次修订流程。",
+        "strengths": [
+          "有稳定的内容生成能力",
+          "能围绕题目展开事件",
+          "愿意写生活细节和结尾感悟"
+        ],
+        "needsImprovement": [
+          "的地得高频反复",
+          "常见错别字复查不足",
+          "对话标点和长句停顿不稳定",
+          "细节描写需要从感受词升级为动作、语言、神态"
+        ]
+      },
+      "learningLinks": []
+    }
+  ],
+  "knowledgePlans": [
+    {
+      "id": "math-unit-one",
+      "subject": "math",
+      "priority": "P0",
+      "title": "分数应用题先判断单位 1",
+      "reason": "Leo 容易把“占几分之几”和“实际数量是多少”混在一起。",
+      "goal": "列式前能先写出题目问什么、单位 1 是谁、要求的是占比还是数量。",
+      "evidenceMaterialIds": [
+        "math-2026-05-23-unit56"
+      ],
+      "practiceFiles": [
+        {
+          "label": "分数应用题单位 1 提升习题",
+          "minutes": 5,
+          "source": "数学/提升习题/2026-05-23-分数应用题单位1-提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "能说出单位 1",
+        "能区分占比和实际数量",
+        "能用最后一句检查列式方向"
+      ]
+    },
+    {
+      "id": "chinese-reading-three-questions",
+      "subject": "chinese",
+      "priority": "P0",
+      "title": "阅读题用三问法补完整答案",
+      "reason": "语文试卷中阅读题需要继续练“题目问什么、原文证据在哪、几分写几点”。",
+      "goal": "回答前先找原文支撑句，再按分值分点写完整。",
+      "evidenceMaterialIds": [
+        "chinese-2026-05-23-unit3"
+      ],
+      "practiceFiles": [
+        {
+          "label": "阅读题三问法提升习题",
+          "minutes": 10,
+          "source": "语文/提升习题/2026-05-23-阅读题三问法-提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "能圈出题干关键词",
+        "能找到原文依据",
+        "能根据分值决定写几点"
+      ]
+    },
+    {
+      "id": "composition-de-di-de",
+      "subject": "chinese",
+      "priority": "P0",
+      "title": "作文的地得专项修订",
+      "reason": "7 篇作文中多次出现“的、地、得”混用，是最容易通过固定检查流程改善的问题。",
+      "goal": "写完作文后能根据后面接的是名词、动作还是程度，主动查出的地得问题。",
+      "evidenceMaterialIds": [
+        "chinese-composition-summary-2026-05-26"
+      ],
+      "practiceFiles": [
+        {
+          "label": "作文的地得专项提升习题",
+          "minutes": 10,
+          "source": "语文/提升习题/2026-05-26-作文的地得专项提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "能说出的地得三条规则",
+        "10 句中至少改对 8 句",
+        "能在自己作文中主动圈出的地得"
+      ]
+    },
+    {
+      "id": "composition-typo-check",
+      "subject": "chinese",
+      "priority": "P0",
+      "title": "作文常用错别字复查",
+      "reason": "错别字多集中在常见词，如已经、觉得、开始、一遍，适合用清单解决。",
+      "goal": "建立 Leo 易错词清单，作文写完后固定复查。",
+      "evidenceMaterialIds": [
+        "chinese-composition-summary-2026-05-26"
+      ],
+      "practiceFiles": [
+        {
+          "label": "作文易错词复查专项提升习题",
+          "minutes": 10,
+          "source": "语文/提升习题/2026-05-26-作文易错词复查专项提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "能改正常见错写词",
+        "能用正确词造句",
+        "作文后能按清单复查"
+      ]
+    },
+    {
+      "id": "composition-punctuation-dialogue",
+      "subject": "chinese",
+      "priority": "P0",
+      "title": "作文对话标点和长句停顿",
+      "reason": "多篇作文中人物说话、问句和长句停顿不稳，影响句子清楚度。",
+      "goal": "掌握“某某说/问/回答”的标点模板，长句能主动加停顿。",
+      "evidenceMaterialIds": [
+        "chinese-composition-summary-2026-05-26"
+      ],
+      "practiceFiles": [
+        {
+          "label": "作文标点与对话格式专项提升习题",
+          "minutes": 12,
+          "source": "语文/提升习题/2026-05-26-作文标点与对话格式专项提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "冒号、引号、句号、问号位置正确",
+        "能把长句拆成更清楚的停顿",
+        "自己写一组对话格式正确"
+      ]
+    },
+    {
+      "id": "composition-detail-upgrade",
+      "subject": "chinese",
+      "priority": "P1",
+      "title": "作文细节描写升级",
+      "reason": "Leo 已经能写完整事件，下一步要把“开心、害怕、辛苦”等感受写成看得见的画面。",
+      "goal": "每次作文后挑 3 句，把感受词升级成动作、语言、神态或环境。",
+      "evidenceMaterialIds": [
+        "chinese-composition-summary-2026-05-26"
+      ],
+      "practiceFiles": [
+        {
+          "label": "作文细节描写升级专项提升习题",
+          "minutes": 12,
+          "source": "语文/提升习题/2026-05-26-作文细节描写升级专项提升习题.md"
+        }
+      ],
+      "checkpoints": [
+        "每句至少补一个动作或神态",
+        "能把空泛感受写成画面",
+        "一次只改 3 句，不整篇重写"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "语文作文辅导"
+  short_description: "分析作文原文和批改，训练写作与修订能力"
+  default_prompt: "使用 $chinese-composition-coach 分析 Leo 的作文原图、转写稿或批改稿，保留原文证据，评估审题、结构、细节、语言、错别字、的地得和标点问题，并生成作文修改建议和专项写作训练。"

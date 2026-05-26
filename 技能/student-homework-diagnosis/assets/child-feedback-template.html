@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{页面标题}}</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff8ec;
+      --paper: #fffef9;
+      --text: #3f3a2f;
+      --muted: #746a59;
+      --line: #eadfca;
+      --sky: #6aa6d8;
+      --sky-soft: #edf7ff;
+      --mint: #74b99f;
+      --mint-soft: #edf9f3;
+      --honey: #e8bd5f;
+      --honey-soft: #fff6d9;
+      --rose: #ee9d92;
+      --rose-soft: #fff0ec;
+      --formula-bg: #fffaf0;
+      --formula-line: #ecd9ae;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .hero,
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin: 16px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #4f8fc4;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 24px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .summary,
+    .muted {
+      color: var(--muted);
+    }
+
+    .map-list,
+    .practice-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .map-list li,
+    .practice-list li,
+    .step,
+    .callout {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .step {
+      margin: 12px 0;
+      border-left: 5px solid var(--sky);
+      background: var(--sky-soft);
+    }
+
+    .callout {
+      margin: 12px 0;
+    }
+
+    .callout.trap {
+      border-color: var(--honey);
+      background: var(--honey-soft);
+    }
+
+    .callout.check {
+      border-color: var(--mint);
+      background: var(--mint-soft);
+    }
+
+    .callout.warn {
+      border-color: var(--rose);
+      background: var(--rose-soft);
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: #4f8fc4;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .formula {
+      overflow-x: auto;
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--formula-line);
+      background: var(--formula-bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .source {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    a {
+      color: #4f8fc4;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 920px);
+        padding-top: 10px;
+      }
+
+      .hero,
+      section {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">{{页面标签}}</p>
+      <h1>{{今日重点}}</h1>
+      <p class="summary">{{简短说明}}</p>
+      <div>
+        <span class="tag">{{标签_1}}</span>
+        <span class="tag">{{标签_2}}</span>
+        <span class="tag">{{标签_3}}</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>错题地图</h2>
+      <ol class="map-list">
+        <li>{{错题地图_1}}</li>
+        <li>{{错题地图_2}}</li>
+        <li>{{错题地图_3}}</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>{{讲解标题}}</h2>
+      <div class="step">
+        <h3>第 1 步：题目问什么？</h3>
+        <p>{{第1步}}</p>
+      </div>
+      <div class="step">
+        <h3>第 2 步：条件在哪里？</h3>
+        <p>{{第2步}}</p>
+      </div>
+      <div class="step">
+        <h3>第 3 步：怎么作答？</h3>
+        <p>{{第3步}}</p>
+        <pre class="formula">{{公式或答题框}}</pre>
+      </div>
+      <div class="callout trap">
+        <h3>容易掉进的坑</h3>
+        <p>{{常见陷阱}}</p>
+      </div>
+      <div class="callout check">
+        <h3>下次这样检查</h3>
+        <p>{{自查方法}}</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>5 分钟小练习</h2>
+      <ol class="practice-list">
+        <li>{{练习_1}}</li>
+        <li>{{练习_2}}</li>
+        <li>{{练习_3}}</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>今天记住一句话</h2>
+      <p>{{记忆句}}</p>
+      <p class="source">{{来源链接}}</p>
+    </section>
+  </main>
+</body>
+</html>

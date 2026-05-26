@@ -1,0 +1,4 @@
+interface:
+  display_name: "学生作业诊断"
+  short_description: "跨学科作业诊断入口，可分流到语文阅读、作文和数学技能"
+  default_prompt: "使用 $student-homework-diagnosis 对 Leo 的混合学科作业或综合学习资料做总体诊断；如果材料明确属于语文阅读、语文作文或数学，应优先分流到对应的细分技能。"

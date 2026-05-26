@@ -1,0 +1,21 @@
+# macOS and local editor state
+.DS_Store
+**/.DS_Store
+.obsidian/
+
+# Local secrets
+config/auth.json
+.env
+.env.*
+
+# Website dependencies and generated output
+网站/node_modules/
+网站/dist/
+网站/public/config/
+网站/public/materials/
+
+# Logs and caches
+*.log
+.cache/
+tmp/
+temp/

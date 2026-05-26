@@ -1,0 +1,24 @@
+{
+  "title": "Leo 本地学习门户",
+  "subtitle": "先看原始素材和系统分析，再按知识点完成提升练习",
+  "student": {
+    "name": "Leo",
+    "grade": "小学五年级下学期",
+    "educationSystem": "中国教育体系"
+  },
+  "defaultEntry": "leo",
+  "theme": {
+    "background": "#fff8ec",
+    "surface": "#fffef9",
+    "text": "#3f3a2f",
+    "muted": "#746a59",
+    "accent": "#6aa6d8",
+    "success": "#74b99f",
+    "warning": "#e8bd5f",
+    "softRose": "#ee9d92"
+  },
+  "runtime": {
+    "contentIndex": "/config/content-index.json",
+    "auth": "/config/auth.json"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "数学作业诊断"
+  short_description: "分析数学错题，评估知识点并生成专项训练"
+  default_prompt: "使用 $math-homework-diagnosis 分析 Leo 的数学试卷、作业或错题，评估概念、计算、单位、数量关系、公式应用、统计和应用题建模等知识点掌握情况，并生成孩子能看懂的讲解和专项提升题。"

@@ -1,0 +1,6 @@
+{
+  "mode": "single-password",
+  "password": "请在本地 config/auth.json 中设置真实密码",
+  "sessionKey": "leo-study-site-authenticated",
+  "note": "这是示例配置。真实 auth.json 只保存在本地，不提交到 GitHub。"
+}
