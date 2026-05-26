@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = path.join(root, "语文");
-const outRoot = path.join(sourceRoot, "Publish", "html");
+const outRoot = path.join(root, "publish", "语文");
 const assetExts = new Set([
   ".jpg",
   ".jpeg",
