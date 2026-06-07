@@ -7,15 +7,28 @@
   <meta name="description" content="Leo 英文 HTML 学习资料入口。">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../assets/portal.css">
+  <link rel="stylesheet" href="../assets/training.css">
+  <script src="../assets/access.js"></script>
+  <script>window.LeoAccess.requireAccess("../index.html");</script>
 </head>
-<body>
+<body data-subject="english">
   <main class="shell">
     <a class="back" href="../index.html">返回发布中心</a>
     <header class="hero">
       <p class="eyebrow">英文</p>
       <h1>Leo 英文学习资料</h1>
-      <p class="summary">这个入口已经准备好。后续把英文阅读、词句积累和复习资料生成到这里后，就可以从本页进入。</p>
+      <p class="summary">目前还没有足够的英文作业或试卷诊断证据，因此暂不生成薄弱知识点，避免凭空判断。</p>
     </header>
+    <section class="knowledge-section">
+      <div class="knowledge-heading">
+        <h2>需要加强的知识点</h2>
+        <p>补充英文作业、试卷或阅读材料并完成分析后，这里会自动形成对应的知识点清单和专项测试。</p>
+      </div>
+      <div class="knowledge-list" id="knowledgeList"></div>
+      <p class="knowledge-empty" id="knowledgeEmpty" hidden>暂时没有可确认的英文薄弱知识点。先收集一份近期作业或试卷，再进行有证据的诊断。</p>
+    </section>
   </main>
+  <script src="../assets/knowledge-data.js"></script>
+  <script src="../assets/subject-page.js"></script>
 </body>
 </html>

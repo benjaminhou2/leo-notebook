@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = path.join(root, "语文");
-const outRoot = path.join(root, "publish", "语文");
+const publishRoot = path.join(root, "publish");
+const outRoot = path.join(publishRoot, "语文");
 const assetExts = new Set([
   ".jpg",
   ".jpeg",
@@ -302,6 +303,8 @@ function descriptionFrom(markdown) {
 function layout({ title, description, body, toc, sourceRel, outFile }) {
   const cssHref = relHref(outFile, path.join(outRoot, "assets", "styles.css"));
   const indexHref = relHref(outFile, path.join(outRoot, "index.html"));
+  const accessHref = relHref(outFile, path.join(publishRoot, "assets", "access.js"));
+  const portalHref = relHref(outFile, path.join(publishRoot, "index.html"));
   const tocHtml =
     toc.length >= 3
       ? `<nav class="toc" aria-label="目录"><strong>目录</strong>${toc
@@ -320,6 +323,8 @@ function layout({ title, description, body, toc, sourceRel, outFile }) {
   <meta property="og:description" content="${escapeHtml(description)}">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="${cssHref}">
+  <script src="${accessHref}"></script>
+  <script>window.LeoAccess.requireAccess("${portalHref}");</script>
 </head>
 <body>
   <header class="site-header">
@@ -704,7 +709,13 @@ tr:last-child td {
 }
 
 function makeIndex(pages) {
-  const cssHref = relHref(path.join(outRoot, "index.html"), path.join(outRoot, "assets", "styles.css"));
+  const indexFile = path.join(outRoot, "index.html");
+  const cssHref = relHref(indexFile, path.join(outRoot, "assets", "styles.css"));
+  const trainingCssHref = relHref(indexFile, path.join(publishRoot, "assets", "training.css"));
+  const accessHref = relHref(indexFile, path.join(publishRoot, "assets", "access.js"));
+  const portalHref = relHref(indexFile, path.join(publishRoot, "index.html"));
+  const knowledgeHref = relHref(indexFile, path.join(publishRoot, "assets", "knowledge-data.js"));
+  const subjectPageHref = relHref(indexFile, path.join(publishRoot, "assets", "subject-page.js"));
   const grouped = new Map();
   for (const page of pages) {
     const group = path.dirname(page.sourceRel);
@@ -739,8 +750,11 @@ function makeIndex(pages) {
   <meta name="description" content="Leo 语文作文、阅读、试卷分析和专项提升资料的本地 HTML 阅读入口。">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="${cssHref}">
+  <link rel="stylesheet" href="${trainingCssHref}">
+  <script src="${accessHref}"></script>
+  <script>window.LeoAccess.requireAccess("${portalHref}");</script>
 </head>
-<body>
+<body data-subject="chinese">
   <header class="site-header">
     <a class="home-link" href="./index.html">Leo 语文学习资料</a>
   </header>
@@ -750,10 +764,19 @@ function makeIndex(pages) {
       <h1>Leo 语文学习资料</h1>
       <p class="summary">这里把语文目录下的 Markdown 转成了更适合阅读的 HTML，保留原来的子目录路径，方便按作文、试卷分析和专项练习查看。</p>
     </header>
+    <section class="knowledge-section">
+      <div class="knowledge-heading">
+        <h2>当前最需要加强的知识点</h2>
+        <p>这些知识点来自作文和试卷诊断。点击任意一项，完成第一轮基础诊断和第二轮错题强化。</p>
+      </div>
+      <div class="knowledge-list" id="knowledgeList"></div>
+    </section>
     <div class="section-list">
       ${sections}
     </div>
   </main>
+  <script src="${knowledgeHref}"></script>
+  <script src="${subjectPageHref}"></script>
 </body>
 </html>
 `;

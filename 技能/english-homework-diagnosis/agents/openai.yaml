@@ -1,0 +1,4 @@
+interface:
+  display_name: "英文学习诊断"
+  short_description: "分析英文作业试卷，定位词汇语法阅读写作薄弱点"
+  default_prompt: "使用 $english-homework-diagnosis 分析 Leo 的英文试卷、作业、阅读或写作，评估词汇、拼写、句型、语法、阅读细节和写作表达，并生成证据化诊断与专项训练。"

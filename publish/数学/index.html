@@ -7,15 +7,27 @@
   <meta name="description" content="Leo 数学 HTML 学习资料入口。">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../assets/portal.css">
+  <link rel="stylesheet" href="../assets/training.css">
+  <script src="../assets/access.js"></script>
+  <script>window.LeoAccess.requireAccess("../index.html");</script>
 </head>
-<body>
+<body data-subject="math">
   <main class="shell">
     <a class="back" href="../index.html">返回发布中心</a>
     <header class="hero">
       <p class="eyebrow">数学</p>
       <h1>Leo 数学学习资料</h1>
-      <p class="summary">这个入口已经准备好。后续把数学错题讲解、知识点练习和复习页生成到这里后，就可以从本页进入。</p>
+      <p class="summary">根据第五、六单元综合练习的错题证据，先加强单位1、问法判断、异分母计算和统计占比。</p>
     </header>
+    <section class="knowledge-section">
+      <div class="knowledge-heading">
+        <h2>当前最需要加强的知识点</h2>
+        <p>每个知识点包含两轮测试。第一轮定位问题，第二轮围绕第一轮错题继续强化。</p>
+      </div>
+      <div class="knowledge-list" id="knowledgeList"></div>
+    </section>
   </main>
+  <script src="../assets/knowledge-data.js"></script>
+  <script src="../assets/subject-page.js"></script>
 </body>
 </html>

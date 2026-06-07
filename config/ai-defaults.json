@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "phase2-ai-v1",
+  "models": [
+    {
+      "key": "zhipu-vision",
+      "name": "智谱视觉分析",
+      "provider": "zhipu",
+      "model": "glm-4v",
+      "purpose": "图片、试卷与手写内容识别",
+      "keyRef": "zhipuApiKey",
+      "temperature": 0.2,
+      "enabled": true
+    },
+    {
+      "key": "deepseek-text",
+      "name": "DeepSeek 深度分析",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "purpose": "诊断、出题、质检与报告生成",
+      "keyRef": "deepseekApiKey",
+      "temperature": 0.25,
+      "enabled": true
+    }
+  ],
+  "prompts": [
+    {
+      "slug": "material-structure",
+      "name": "素材结构化识别",
+      "taskType": "material-structure",
+      "description": "从图片或转写文本中提取题目、答案、批改和证据位置。",
+      "content": "你负责把 Leo 的学习素材转成结构化记录。学生处于{{grade}}{{semester}}，科目是{{subjectLabel}}，素材类型是{{materialType}}。必须区分原始事实与模型判断；无法确认的内容写入 reviewRequired=true。返回 JSON：{\"title\":\"\",\"summary\":\"\",\"confidence\":0.0,\"questions\":[{\"number\":\"1\",\"type\":\"\",\"score\":0,\"prompt\":\"\",\"studentAnswer\":\"\",\"correctAnswer\":\"\",\"teacherMark\":\"\",\"page\":1,\"evidenceText\":\"\",\"confidence\":0.0,\"reviewRequired\":false}]}。不得编造图片中看不见的答案、分数或批改。",
+      "enabled": true
+    },
+    {
+      "slug": "chinese-reading-analysis",
+      "name": "语文阅读深度诊断",
+      "taskType": "material-analysis",
+      "description": "围绕信息定位、概括、中心理解和分点表达分析语文阅读素材。",
+      "content": "结合技能规则与结构化题目，诊断 Leo 的语文阅读表现。每个发现必须连接题号和证据，区分知识点缺口、技能缺口、习惯问题和材料难度。返回 JSON：{\"summary\":\"\",\"strengths\":[],\"findings\":[{\"title\":\"\",\"category\":\"knowledge|skill|habit|difficulty\",\"priority\":\"P0|P1|P2\",\"reason\":\"\",\"knowledgeCode\":\"\",\"questionNumber\":\"\",\"evidenceText\":\"\",\"studentAnswer\":\"\",\"expectedAnswer\":\"\",\"confidence\":0.0,\"reviewRequired\":false}],\"suggestedTasks\":[]}。",
+      "enabled": true
+    },
+    {
+      "slug": "chinese-composition-analysis",
+      "name": "语文作文深度诊断",
+      "taskType": "material-analysis",
+      "description": "分析作文审题、结构、细节、语言和二次修订能力。",
+      "content": "结合技能规则分析 Leo 的作文，保留原文证据，不直接改写原文。围绕审题立意、结构、选材、细节描写、语言准确、错别字、的地得、标点、病句、结尾和二次修订输出证据化发现。返回 JSON：{\"summary\":\"\",\"strengths\":[],\"findings\":[{\"title\":\"\",\"category\":\"knowledge|skill|habit|difficulty\",\"priority\":\"P0|P1|P2\",\"reason\":\"\",\"knowledgeCode\":\"\",\"questionNumber\":\"作文\",\"evidenceText\":\"原文短句\",\"studentAnswer\":\"\",\"expectedAnswer\":\"\",\"confidence\":0.0,\"reviewRequired\":false}],\"suggestedTasks\":[]}。",
+      "enabled": true
+    },
+    {
+      "slug": "math-analysis",
+      "name": "数学深度诊断",
+      "taskType": "material-analysis",
+      "description": "分析概念、计算、单位、数量关系、公式、统计和应用题建模。",
+      "content": "结合技能规则和结构化题目分析 Leo 的数学素材。先判断题目给了什么、问什么、单位1、数量关系和检查方法。不要把一次计算失误直接判成知识不会。返回 JSON：{\"summary\":\"\",\"strengths\":[],\"findings\":[{\"title\":\"\",\"category\":\"knowledge|skill|habit|difficulty\",\"priority\":\"P0|P1|P2\",\"reason\":\"\",\"knowledgeCode\":\"\",\"questionNumber\":\"\",\"evidenceText\":\"\",\"studentAnswer\":\"\",\"expectedAnswer\":\"\",\"confidence\":0.0,\"reviewRequired\":false}],\"suggestedTasks\":[]}。",
+      "enabled": true
+    },
+    {
+      "slug": "english-analysis",
+      "name": "英文深度诊断",
+      "taskType": "material-analysis",
+      "description": "分析词汇、拼写、句型、语法、阅读和写作。",
+      "content": "结合技能规则和结构化题目分析 Leo 的英文素材。优先使用当前教材词汇和五年级下学期句型，区分词汇、拼写、句型、时态、单复数、阅读定位和写作表达。返回 JSON：{\"summary\":\"\",\"strengths\":[],\"findings\":[{\"title\":\"\",\"category\":\"knowledge|skill|habit|difficulty\",\"priority\":\"P0|P1|P2\",\"reason\":\"\",\"knowledgeCode\":\"\",\"questionNumber\":\"\",\"evidenceText\":\"\",\"studentAnswer\":\"\",\"expectedAnswer\":\"\",\"confidence\":0.0,\"reviewRequired\":false}],\"suggestedTasks\":[]}。",
+      "enabled": true
+    },
+    {
+      "slug": "quiz-round1",
+      "name": "第一轮诊断出题",
+      "taskType": "quiz-round1",
+      "description": "根据已确认薄弱点生成短时、证据化的第一轮诊断。",
+      "content": "为{{subjectLabel}}知识点“{{knowledgeTitle}}”生成第一轮诊断。依据：{{evidenceSummary}}。预计用时{{minutes}}分钟，题量{{questionCount}}。优先使用旧错题变式。每题必须真正考查目标知识点，选择题干扰项来自真实常见错因。返回 JSON：{\"plan\":{\"goal\":\"\",\"minutes\":10,\"coverage\":[]},\"questions\":[{\"type\":\"choice|fill|judge\",\"prompt\":\"\",\"options\":[],\"answers\":[],\"explanation\":\"\",\"tag\":\"\",\"difficulty\":1,\"sourceBasis\":\"\",\"expectedError\":\"\"}]}。",
+      "enabled": true
+    },
+    {
+      "slug": "quiz-round2",
+      "name": "第二轮强化出题",
+      "taskType": "quiz-round2",
+      "description": "根据第一轮错题和错因生成迁移强化题。",
+      "content": "为{{subjectLabel}}知识点“{{knowledgeTitle}}”生成第二轮强化。第一轮错题与错因：{{wrongAnswerSummary}}。至少70%的题目针对这些错因，其余用于迁移检查。使用新数字、新语境或新表达，不得复刻历史题。返回 JSON：{\"plan\":{\"goal\":\"\",\"minutes\":10,\"coverage\":[]},\"questions\":[{\"type\":\"choice|fill|judge\",\"prompt\":\"\",\"options\":[],\"answers\":[],\"explanation\":\"\",\"tag\":\"\",\"difficulty\":2,\"sourceBasis\":\"对应第一轮错题或迁移目标\",\"expectedError\":\"\"}]}。",
+      "enabled": true
+    },
+    {
+      "slug": "quiz-quality",
+      "name": "训练题质量检查",
+      "taskType": "quiz-quality",
+      "description": "检查重复、答案、选项、学段、难度和语言质量。",
+      "content": "检查给定训练题。要求：同轮无重复；跨轮无相同题干；选择题只有一个答案且至少两个干扰项对应真实错因；答案存在于选项；解析与答案一致；符合{{grade}}{{semester}}；不超纲、不歧义。返回 JSON：{\"passed\":true,\"score\":100,\"issues\":[{\"questionIndex\":1,\"type\":\"duplicate|answer|option|scope|difficulty|language|content\",\"message\":\"\",\"action\":\"regenerate|edit\"}]}。",
+      "enabled": true
+    },
+    {
+      "slug": "parent-report",
+      "name": "家长学习报告",
+      "taskType": "report",
+      "description": "根据证据生成周报或月报。",
+      "content": "根据{{reportData}}生成家长阶段报告。只描述数据中有证据支持的趋势，不补造学习行为。返回 JSON：{\"title\":\"\",\"summary\":\"\",\"highlights\":[],\"persistentConcerns\":[],\"trainingEffect\":\"\",\"nextSteps\":[],\"evidenceLimits\":[]}。highlights 写主要进步，persistentConcerns 写持续问题，nextSteps 写 1-3 条可执行陪练建议；没有证据时在 evidenceLimits 中明确说明。",
+      "enabled": true
+    },
+    {
+      "slug": "leo-explanation",
+      "name": "Leo 错题讲解",
+      "taskType": "leo-explanation",
+      "description": "生成简短、温和、可执行的孩子版讲解。",
+      "content": "面向小学五年级 Leo，根据{{wrongDetails}}生成孩子版错题讲解。用短句讲清题目在问什么、证据或条件在哪里、他卡在哪一步、下次怎样做。不要贴标签，不要游戏化。返回 JSON：{\"title\":\"\",\"summary\":\"\",\"steps\":[],\"selfCheck\":\"\",\"practice\":{\"prompt\":\"\",\"answer\":\"\"}}。",
+      "enabled": true
+    }
+  ],
+  "routes": [
+    {
+      "key": "structure-default",
+      "taskType": "material-structure",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "material-structure",
+      "modelKey": "zhipu-vision",
+      "fallbackModelKey": "deepseek-text",
+      "enabled": true
+    },
+    {
+      "key": "analysis-chinese-reading",
+      "taskType": "material-analysis",
+      "subject": "chinese",
+      "materialType": "阅读理解",
+      "skillSlug": "chinese-reading-diagnosis",
+      "promptSlug": "chinese-reading-analysis",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "analysis-chinese-composition",
+      "taskType": "material-analysis",
+      "subject": "chinese",
+      "materialType": "作文",
+      "skillSlug": "chinese-composition-coach",
+      "promptSlug": "chinese-composition-analysis",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "analysis-chinese-default",
+      "taskType": "material-analysis",
+      "subject": "chinese",
+      "materialType": "*",
+      "skillSlug": "chinese-reading-diagnosis",
+      "promptSlug": "chinese-reading-analysis",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "analysis-math",
+      "taskType": "material-analysis",
+      "subject": "math",
+      "materialType": "*",
+      "skillSlug": "math-homework-diagnosis",
+      "promptSlug": "math-analysis",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "analysis-english",
+      "taskType": "material-analysis",
+      "subject": "english",
+      "materialType": "*",
+      "skillSlug": "english-homework-diagnosis",
+      "promptSlug": "english-analysis",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "quiz-round1-default",
+      "taskType": "quiz-round1",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "quiz-round1",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "quiz-round2-default",
+      "taskType": "quiz-round2",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "quiz-round2",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "quiz-quality-default",
+      "taskType": "quiz-quality",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "quiz-quality",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "report-default",
+      "taskType": "report",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "parent-report",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    },
+    {
+      "key": "leo-explanation-default",
+      "taskType": "leo-explanation",
+      "subject": "*",
+      "materialType": "*",
+      "skillSlug": "student-homework-diagnosis",
+      "promptSlug": "leo-explanation",
+      "modelKey": "deepseek-text",
+      "fallbackModelKey": "",
+      "enabled": true
+    }
+  ]
+}

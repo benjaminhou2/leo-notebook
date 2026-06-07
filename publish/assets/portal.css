@@ -35,6 +35,96 @@ a {
   padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 34px) 64px;
 }
 
+.is-hidden {
+  display: none !important;
+}
+
+.auth-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.login-card {
+  width: min(100%, 440px);
+  padding: clamp(24px, 6vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.94);
+}
+
+.login-card h1 {
+  font-size: clamp(30px, 7vw, 42px);
+}
+
+.login-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.login-form input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffaf1;
+  color: var(--ink);
+  font: inherit;
+}
+
+.login-form input:focus {
+  border-color: #c89561;
+  outline: 3px solid #f7dfba;
+}
+
+.login-form button,
+.logout-button {
+  border: 1px solid #c89561;
+  border-radius: 8px;
+  background: #fff2d8;
+  color: #6c4729;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-form button {
+  min-height: 48px;
+}
+
+.login-error {
+  min-height: 24px;
+  margin: 0;
+  color: #9a4f31;
+  font-size: 15px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hero-top .eyebrow {
+  margin-bottom: 10px;
+}
+
+.logout-button {
+  min-height: 36px;
+  padding: 6px 14px;
+}
+
 .hero {
   padding: 6px 0 26px;
   border-bottom: 1px solid var(--line);

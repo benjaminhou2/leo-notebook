@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "knowledge-catalog-v1",
+  "studentStage": {
+    "grade": "小学五年级",
+    "semester": "下学期",
+    "textbookVersion": "待确认"
+  },
+  "items": [
+    {
+      "code": "CN-READ-LOCATE",
+      "subject": "chinese",
+      "title": "阅读信息定位",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "阅读理解",
+      "parentCode": "CN-READ",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能根据题干关键词回原文找到直接证据。"
+    },
+    {
+      "code": "CN-READ-SUMMARY",
+      "subject": "chinese",
+      "title": "概括主要内容",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "阅读理解",
+      "parentCode": "CN-READ",
+      "prerequisiteCodes": ["CN-READ-LOCATE"],
+      "masteryStandard": "能删去细节例子，保留人物、事件和结果。"
+    },
+    {
+      "code": "CN-READ-POINTS",
+      "subject": "chinese",
+      "title": "按分值分点作答",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "阅读理解",
+      "parentCode": "CN-READ",
+      "prerequisiteCodes": ["CN-READ-LOCATE"],
+      "masteryStandard": "能根据题目分值判断答案点数并使用完整句。"
+    },
+    {
+      "code": "CN-WRITE-DE",
+      "subject": "chinese",
+      "title": "的地得正确使用",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "作文",
+      "parentCode": "CN-WRITE-LANGUAGE",
+      "prerequisiteCodes": [],
+      "masteryStandard": "10句中至少正确判断8句，并能在作文后主动复查。"
+    },
+    {
+      "code": "CN-WRITE-PUNCT",
+      "subject": "chinese",
+      "title": "对话标点与长句停顿",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "作文",
+      "parentCode": "CN-WRITE-LANGUAGE",
+      "prerequisiteCodes": [],
+      "masteryStandard": "对话冒号、引号和句末标点位置正确。"
+    },
+    {
+      "code": "CN-WRITE-DETAIL",
+      "subject": "chinese",
+      "title": "细节描写",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "作文",
+      "parentCode": "CN-WRITE-CONTENT",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能用动作、语言、神态或环境把抽象感受写成画面。"
+    },
+    {
+      "code": "MATH-FRAC-UNIT1",
+      "subject": "math",
+      "title": "分数应用题单位1",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "分数应用题",
+      "parentCode": "MATH-FRAC-APP",
+      "prerequisiteCodes": [],
+      "masteryStandard": "列式前能准确说出单位1并判断求占比还是实际量。"
+    },
+    {
+      "code": "MATH-FRAC-CALC",
+      "subject": "math",
+      "title": "异分母分数加减",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "分数加减法",
+      "parentCode": "MATH-FRAC",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能正确通分、计算并约成最简分数。"
+    },
+    {
+      "code": "MATH-GEO-VOLUME",
+      "subject": "math",
+      "title": "长方体与正方体体积",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "长方体和正方体",
+      "parentCode": "MATH-GEO",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能选择正确公式、统一单位并检查体积单位。"
+    },
+    {
+      "code": "MATH-GEO-SURFACE",
+      "subject": "math",
+      "title": "长方体与正方体表面积",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "长方体和正方体",
+      "parentCode": "MATH-GEO",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能判断需要计算哪些面，避免漏面或多算。"
+    },
+    {
+      "code": "MATH-STAT-RATIO",
+      "subject": "math",
+      "title": "统计数据中的部分与总量",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "统计",
+      "parentCode": "MATH-STAT",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能先求总量，再判断部分与总量的关系。"
+    },
+    {
+      "code": "EN-VOC-SPELL",
+      "subject": "english",
+      "title": "教材词汇与拼写",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "词汇",
+      "parentCode": "EN-VOC",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能正确拼写当前单元核心词汇并在短句中使用。"
+    },
+    {
+      "code": "EN-GRAMMAR-THIRD",
+      "subject": "english",
+      "title": "一般现在时第三人称单数",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "语法",
+      "parentCode": "EN-GRAMMAR",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能根据主语正确变化动词形式。"
+    },
+    {
+      "code": "EN-GRAMMAR-PLURAL",
+      "subject": "english",
+      "title": "名词单复数",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "语法",
+      "parentCode": "EN-GRAMMAR",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能根据数量词和句意选择正确的名词形式。"
+    },
+    {
+      "code": "EN-READ-DETAIL",
+      "subject": "english",
+      "title": "英文阅读细节定位",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "阅读",
+      "parentCode": "EN-READ",
+      "prerequisiteCodes": [],
+      "masteryStandard": "能根据题干关键词在短文中找到对应信息。"
+    },
+    {
+      "code": "EN-WRITE-SENTENCE",
+      "subject": "english",
+      "title": "基础句型写作",
+      "grade": "小学五年级",
+      "semester": "下学期",
+      "unit": "写作",
+      "parentCode": "EN-WRITE",
+      "prerequisiteCodes": ["EN-VOC-SPELL"],
+      "masteryStandard": "能用教材句型写出语序、大小写和标点正确的短句。"
+    }
+  ]
+}

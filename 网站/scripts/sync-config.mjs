@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,7 +15,15 @@ const configFiles = ['site.json', 'auth.json', 'content-index.json'];
 async function copyConfig() {
   await mkdir(publicConfigDir, { recursive: true });
   for (const filename of configFiles) {
-    await copyFile(path.join(sourceConfigDir, filename), path.join(publicConfigDir, filename));
+    if (filename === 'auth.json') {
+      const authData = JSON.parse(await readFile(path.join(sourceConfigDir, filename), 'utf8'));
+      delete authData.mysql;
+      delete authData.deepseekApiKey;
+      delete authData.zhipuApiKey;
+      await writeFile(path.join(publicConfigDir, filename), JSON.stringify(authData, null, 2), 'utf8');
+    } else {
+      await copyFile(path.join(sourceConfigDir, filename), path.join(publicConfigDir, filename));
+    }
   }
 }
 

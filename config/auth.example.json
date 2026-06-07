@@ -1,6 +1,13 @@
 {
-  "mode": "single-password",
-  "password": "请在本地 config/auth.json 中设置真实密码",
+  "mode": "mysql",
   "sessionKey": "leo-study-site-authenticated",
-  "note": "这是示例配置。真实 auth.json 只保存在本地，不提交到 GitHub。"
+  "note": "这是示例配置。真实 auth.json 只保存在本地，不提交到 GitHub。",
+  "deepseekApiKey": "your_deepseek_api_key_here",
+  "zhipuApiKey": "your_zhipu_api_key_here",
+  "mysql": {
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "your_mysql_password_here",
+    "database": "leo_study"
+  }
 }

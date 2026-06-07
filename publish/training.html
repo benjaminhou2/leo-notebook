@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leo 专项知识点测试</title>
+  <meta name="description" content="Leo 学习知识点两轮专项测试与自动评分页面。">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./assets/training.css">
+  <script src="./assets/access.js"></script>
+  <script>
+    window.LeoAccess.requireAccess("./index.html");
+  </script>
+</head>
+<body class="training-body">
+  <main class="training-shell">
+    <a class="training-back" id="backLink" href="./index.html">返回学科页面</a>
+    <header class="training-header">
+      <h1 id="trainingTitle">专项知识点测试</h1>
+      <p class="training-intro" id="trainingReason"></p>
+      <p class="training-evidence" id="trainingEvidence"></p>
+    </header>
+
+    <section class="round-summary" aria-label="本轮测试说明">
+      <div><strong id="roundName">第一轮</strong><span id="roundQuestionCount">45 题</span></div>
+      <div><strong>选择 + 填空 + 判断</strong><span id="roundTypeCount">每种题型 15 题</span></div>
+      <div><strong>满分 100 分</strong><span>提交后立即批改</span></div>
+    </section>
+
+    <form id="quizForm"></form>
+
+    <div class="quiz-actions">
+      <button class="quiz-button" id="submitQuiz" type="button">提交并查看成绩</button>
+      <button class="quiz-button secondary" id="startRoundTwo" type="button" hidden>开始第二轮错题强化</button>
+      <button class="quiz-button secondary" id="retryRound" type="button" hidden>重新完成本轮</button>
+    </div>
+
+    <section class="result-panel" id="resultPanel" aria-live="polite" hidden>
+      <h2><span class="score-number" id="scoreNumber">0</span> 分</h2>
+      <p id="scoreSummary"></p>
+      <p class="wrong-focus" id="wrongFocus"></p>
+    </section>
+  </main>
+  <script src="./assets/knowledge-data.js"></script>
+  <script src="./assets/training.js"></script>
+</body>
+</html>
